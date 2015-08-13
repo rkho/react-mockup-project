@@ -18,15 +18,13 @@ var App = React.createClass({
     }
   },
 
-  componentDidMount: function() {
-    if (!this.state.data) {
-      $.get('https://shypcc.firebaseio.com/shipments/1.json', function(result) {
-        this.setState({
-          data: result,
-          loaded: true
-        })
-      }.bind(this))
-    }
+  componentWillMount: function() {
+    $.get('https://shypcc.firebaseio.com/shipments/1.json', function(result) {
+      this.setState({
+        data: result,
+        loaded: true
+      })
+    }.bind(this))
   },
 
   render: function() {

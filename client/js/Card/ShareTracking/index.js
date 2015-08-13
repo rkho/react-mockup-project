@@ -1,21 +1,25 @@
 var React = require('react');
 
-var ShareTracking = React.CreateClass({
+var ShareButton = require('./ShareButton');
+
+var ShareTracking = React.createClass({
 
   // In here, we're going to render a specific component based on whether or not the "Share Tracking" button has been clicked or not.
 
+  // Set the button's properties based on state (CSS, onclick)
+
   getInitialState: function() {
     return({
-      buttonClicked: false;
+      buttonClicked: false
     })
   },
 
   render: function() {
-    return (
-      <div>
-        <h2>Share Tracking</h2>
-      </div>
-      )
+    if (!this.state.buttonClicked) {
+      return (
+        <ShareButton />
+        )
+    }
   }
 });
 
