@@ -7,6 +7,8 @@ var imagemin = require('gulp-imagemin');
 var livereload = require('gulp-livereload');
 var source = require('vinyl-source-stream');
 
+// TODO: Look into ESLint, testing
+
 gulp.task('styles', function() {
 
   gulp.src(['./client/css/**.css'])
