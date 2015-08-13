@@ -49,20 +49,21 @@ p {
   border: 1px solid;
   border-color: #CED4DB;
   width: 510px;
-  margin: 28px auto 0 auto;
+  margin: 28px auto 140px auto;
   max-width: 100%;
 }
 
 #tracking {
+  display: flex;
+  flex-direction: column;
   border-top: 1px solid;
   border-color: #CED4DB;
   margin: 0 28px 0 28px;
-  flex: 1;
 }
 
 #shippingInfoContainer {
   display: flex;
-  margin: 30px 28px 0 28px;
+  margin: 29px 28px 0 28px;
 }
 
 #itemImage {
@@ -71,9 +72,31 @@ p {
   width: 108px;
 }
 
-#buttonContainer {
+#shareTrackingContainer {
   display: flex;
-  margin: 0 28px 30px 28px;
+  justify-content: center;
+  position: relative;
+  border: 1px solid;
+  border-color: #5094CF;
+  margin: 0 28px 29px 28px;
+}
+
+#formContainer {
+  flex: 1;
+  flex-direction: column;
+  text-align: center;
+  margin: 0 40px 29px 40px;
+}
+
+.rowContainer {
+  display: flex;
+  flex-direction: row;
+}
+
+.rowDetails {
+  flex: 1;
+  flex-direction: column;
+  margin-left: 26px;
 }
 
 .addressCell {
@@ -93,35 +116,146 @@ p {
   margin-top: 5px;
 }
 
+.recipientInfo {
+  margin-top: 29px;
+}
+
+.phoneFieldName {
+  margin-top: 34px;
+}
+
+.emailFieldName {
+  margin-top: 18px;
+}
+
+.formInput {
+  height: 50px;
+  width: 100%;
+  max-width: 370px;
+  text-align: center;
+  margin-top: 4px;
+  font-size: 17px;
+  color: #84919C;
+}
+
+.orText {
+  font-size: 13px;
+  color: #84919C;
+  margin-top: 18px;
+}
+
 .address {
   color: #84919C;
   font-size: 13px;
-  margin: 5px 0 40px 0;
+  margin: 5px 0 39px 0;
 }
 
 .button {
-  border: 1px solid;
-  border-color: #5094CF;
-  background: #FFFFFF;
-  width: 450px;
-  max-width: 100%;
+  border: none;
   height: 48px;
 }
 
-.buttonBorder {
-  margin-left: 28px;
-  margin-right: 28px;
+.disabled {
+  background: #FFFFFF;
+  width: 450px;
+  color: #5094CF;
   max-width: 100%;
 }
 
-.shareText {
-  color: #5094CF;
+.enabled {
+  background: #5094CF;
+  width: 370px;
+  margin-top: 35px;
+  color: #FFFFFF;
+  font-weight: semibold;
+  max-width: 100%;
+}
+
+.shareButtonText {
   font-size: 15px;
   margin: 0 auto;
+}
+
+.formShareText {
+  color: #5094CF;
+  font-size: 15px;
+  margin: 14px auto;
+}
+
+.shareUrl {
+  margin-top: 29px;
+  margin-bottom: 32px;
+  color: #5094CF;
+  font-size: 16px;
+}
+
+.trackingHeader {
+  margin: 34px auto 14px auto;
+  align-self: center;
+  font-size: 32px;
+  color: #333333;
+}
+
+.trackingSubheader {
+  margin: 0 auto 52px;
+  font-size: 16px;
+  color: #84919C;
+}
+
+.trackingLocation {
+  color: #84919C;
+  font-size: 13px;
+  margin-bottom: 8px;
+}
+
+.trackingNotes {
+  color: #333333;
+  font-size: 16px;
+  margin-bottom: 70px;
+}
+
+.circle {
+  height: 45px;
+  width: 45px;
+  border-radius: 50%;
+  border: 2px solid;
+  position: relative;
+  border-color: #889EB7;
+}
+
+.circle:before {
+  content: "";
+  display: block;
+  position: absolute;
+  z-index: 1;
+  left: 18px;
+  top: 0;
+  bottom: 0;
+  border: 1px dotted;
+  border-width: 0 0 0 1px;
+}
+
+.delivered {
+  color: #50BD81;
+  border-color: #50BD81;
+}
+
+.delivered:before {
+  position: absolute;
+  font-family: font-awesome;
+  content: "\25AE";
 }
 
 .loading {
   color: #CED4DB;
   margin: 28px auto 0 auto;
+  display: block;
+}
+
+.close {
+  color: #5094CF;
+  top: 12px;
+  left: 12px;
+  position: absolute;
   display: block;
 }

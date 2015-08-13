@@ -1,5 +1,6 @@
 var React = require('react');
 
+var Form = require('./Form');
 var ShareButton = require('./ShareButton');
 
 var ShareTracking = React.createClass({
@@ -17,9 +18,36 @@ var ShareTracking = React.createClass({
   render: function() {
     if (!this.state.buttonClicked) {
       return (
-        <ShareButton />
+        this._renderButton()
         )
     }
+
+    return (
+      this._renderForm()
+      )
+  },
+
+  _onButtonClick: function() {
+    this.setState({
+      buttonClicked: !this.state.buttonClicked
+    })
+  },
+
+  _renderButton: function() {
+    return(
+      <div id="shareTrackingContainer">
+        <ShareButton onDisabledButtonClick={this._onButtonClick} />
+      </div>
+      )
+  },
+
+  _renderForm: function() {
+    return (
+      <div id="shareTrackingContainer">
+        <Form onCloseButtonClick={this._onButtonClick}/>
+      </div>
+
+      )
   }
 });
 

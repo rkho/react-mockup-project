@@ -45,7 +45,7 @@ gulp.task('dev', function() {
 
   livereload.listen();
 
-  gulp.watch('./client/js/**/*.js', ['browserify']);
+  gulp.watch('./client/js/**/**/*.js', ['browserify']);
   gulp.watch('./client/css/style.css', ['styles']);
   gulp.watch('./client/img/*.png', ['images']);
 })

@@ -1,21 +1,15 @@
 var React = require('react');
 
 var ShareButton = React.createClass({
-  getInitialState: function() {
-    return {
-      buttonStatus: 'buttonDisabled'
-    }
-  },
 
   render: function() {
     return (
-      <div id="buttonContainer">
-        <button className="button">
-          <p className="shareText"> SHARE TRACKING </p>
+        <button className="button disabled" onClick={this.props.onDisabledButtonClick}>
+          <p className="shareButtonText disabled">SHARE TRACKING</p>
         </button>
-      </div>
       )
-  }
+  },
+
 });
 
 module.exports = ShareButton;
