@@ -215,24 +215,35 @@ p {
 }
 
 .circle {
+  position: relative;
   height: 45px;
   width: 45px;
-  border-radius: 50%;
+  border-radius: 100%;
   border: 2px solid;
-  position: relative;
+  z-index: 2;
   border-color: #889EB7;
 }
 
-.circle:before {
+.circle:first-child {
+  margin-top: 0;
+}
+
+.circle:after {
   content: "";
   display: block;
   position: absolute;
   z-index: 1;
-  left: 18px;
-  top: 0;
-  bottom: 0;
-  border: 1px dotted;
+  top: 100%;
+  left: 50%;
+  border: 1px solid;
+  border-color: #CED4DB;
   border-width: 0 0 0 1px;
+  width: 1px;
+  height: 100%;
+}
+
+.circle:first-child:before {
+  display: none;
 }
 
 .delivered {

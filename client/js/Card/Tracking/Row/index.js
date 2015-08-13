@@ -29,7 +29,7 @@ var Row = React.createClass({
 
     return (
       <div className="rowContainer">
-        <img className={classes} />
+        <div className={classes} />
         <div className="rowDetails">
           <p className="trackingLocation">{this.state.location}</p>
           <p className="trackingNotes">{this.state.notes}</p>
