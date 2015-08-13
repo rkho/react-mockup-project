@@ -33,7 +33,7 @@ gulp.task('browserify', function() {
 
 gulp.task('images', function() {
 
-  gulp.src(['./client/img/**/*.png', './client/img/**/*.jpg'])
+  gulp.src(['./client/img/**/*.png', './client/img/**/*.svg'])
     .pipe(imagemin())
     .pipe(gulp.dest('./build/img/'))
     .pipe(livereload());

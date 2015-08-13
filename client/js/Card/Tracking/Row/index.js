@@ -4,6 +4,12 @@ var classNames = require('classnames');
 var Row = React.createClass({
 
   componentWillMount: function() {
+    var trackingNotes = this.props.tracking.notes;
+
+    if (this.props.tracking.tracking) {
+      trackingNotes += '\n' + this.props.tracking.carrier + ' ' + this.props.tracking.tracking;
+    }
+
     this.setState({
       carrier: this.props.tracking.carrier,
       location: this.props.tracking.location,
@@ -17,12 +23,10 @@ var Row = React.createClass({
 
     var classes = classNames({
       'circle': true,
-      'pickup': (this.state.type === 'pickup'),
-      'preparation': (this.state.type === 'preparation'),
+      'home pickup': (this.state.type === 'pickup'),
+      'home': (this.state.type === 'preparation'),
       'packaged': (this.state.type === 'packaged'),
-      'shipped': (this.state.type === 'shipped'),
-      'arrival': (this.state.type === 'arrival'),
-      'departure': (this.state.type === 'departure'),
+      'pin': (this.state.type === 'shipped' || this.state.type === 'arrival' || this.state.type === 'departure'),
       'outForDelivery': (this.state.type === 'outForDelivery'),
       'delivered': (this.state.type === 'delivered')
     })
@@ -32,11 +36,25 @@ var Row = React.createClass({
         <div className={classes} />
         <div className="rowDetails">
           <p className="trackingLocation">{this.state.location}</p>
-          <p className="trackingNotes">{this.state.notes}</p>
+          {this._renderNotes()}
         </div>
       </div>
       )
+  },
+
+  _renderNotes: function() {
+
+    if (this.state.carrier) {
+      return (
+        <p className="trackingNotes">{this.state.notes}<br />via {this.state.carrier} <a href="">{this.state.trackingNumber}</a></p>
+        )
+    }
+
+    return (
+      <p className="trackingNotes">{this.state.notes}</p>
+      )
   }
+
 });
 
 module.exports = Row;

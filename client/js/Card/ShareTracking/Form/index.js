@@ -16,7 +16,7 @@ var Form = React.createClass({
           <button className="button enabled" onClick={this.props.onDisabledButtonClick}>
             <p className="shareButtonText enabled">SHARE TRACKING</p>
           </button>
-          <p className="shareUrl">https://track.shyp.com/qiuehv</p>
+          <a href="" className="shareUrl">https://track.shyp.com/qiuehv</a>
         </div>
       )
   },

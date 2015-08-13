@@ -46,6 +46,7 @@ var Tracking = React.createClass({
 
       )
   }
+
 });
 
 module.exports = Tracking;
