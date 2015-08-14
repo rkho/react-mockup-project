@@ -1,15 +1,9 @@
 var React = require('react');
 var classNames = require('classnames');
 
-var Row = React.createClass({
+class TrackingDetailsRow extends React.Component {
 
-  componentWillMount: function() {
-    var trackingNotes = this.props.tracking.notes;
-
-    if (this.props.tracking.tracking) {
-      trackingNotes += '\n' + this.props.tracking.carrier + ' ' + this.props.tracking.tracking;
-    }
-
+  componentWillMount() {
     this.setState({
       carrier: this.props.tracking.carrier,
       location: this.props.tracking.location,
@@ -17,14 +11,17 @@ var Row = React.createClass({
       trackingNumber: this.props.tracking.tracking,
       type: this.props.tracking.type
     })
-  },
+  }
 
-  render: function() {
+  render() {
+    // The classNames module is used to set the appropriate SVG element used in each tracking scan.
+
+    // While `pickup` and `home` share the same `pin` SVG, the `pickup` class will not continue the vertical line drawn after the element.
 
     var classes = classNames({
       'circle': true,
-      'home pickup': (this.state.type === 'pickup'),
-      'home': (this.state.type === 'preparation'),
+      'pickup': (this.state.type === 'pickup'),
+      'home': (this.state.type === 'pickup' || this.state.type === 'preparation'),
       'packaged': (this.state.type === 'packaged'),
       'pin': (this.state.type === 'shipped' || this.state.type === 'arrival' || this.state.type === 'departure'),
       'outForDelivery': (this.state.type === 'outForDelivery'),
@@ -40,10 +37,9 @@ var Row = React.createClass({
         </div>
       </div>
       )
-  },
+  }
 
-  _renderNotes: function() {
-
+  _renderNotes() {
     if (this.state.carrier) {
       return (
         <p className="trackingNotes">{this.state.notes}<br />via {this.state.carrier} <a href="">{this.state.trackingNumber}</a></p>
@@ -55,6 +51,6 @@ var Row = React.createClass({
       )
   }
 
-});
+};
 
-module.exports = Row;
+module.exports = TrackingDetailsRow;

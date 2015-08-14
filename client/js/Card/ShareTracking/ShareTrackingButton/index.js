@@ -1,15 +1,15 @@
 var React = require('react');
 
-var ShareButton = React.createClass({
+class ShareTrackingButton extends React.Component {
 
-  render: function() {
+  render() {
     return (
         <button className="button disabled" onClick={this.props.onDisabledButtonClick}>
           <p className="shareButtonText disabled">SHARE TRACKING</p>
         </button>
       )
-  },
+  }
 
-});
+};
 
-module.exports = ShareButton;
+module.exports = ShareTrackingButton;

@@ -1,8 +1,10 @@
 var React = require('react');
 
-var AddressCell = React.createClass({
+class AddressCell extends React.Component {
 
-  componentWillMount: function() {
+  // Populates the `To` and `From` fields
+
+  componentWillMount() {
     this.setState({
       city: this.props.information.address.city,
       country: this.props.information.address.country,
@@ -12,9 +14,9 @@ var AddressCell = React.createClass({
       street: this.props.information.address.street,
       zip: this.props.information.address.zip
     })
-  },
+  }
 
-  render: function() {
+  render() {
     return (
       <div className="addressCell">
         <p className="direction">{this.state.direction}</p>
@@ -27,6 +29,7 @@ var AddressCell = React.createClass({
       </div>
       )
   }
-});
+
+};
 
 module.exports = AddressCell;

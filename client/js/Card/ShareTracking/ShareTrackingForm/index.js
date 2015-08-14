@@ -1,8 +1,8 @@
 var React = require('react');
 
-var Form = React.createClass({
+class ShareTrackingForm extends React.Component {
 
-  render: function() {
+  render() {
     return (
         <div id="formContainer">
           <a onClick={this.props.onCloseButtonClick}><i className="fa fa-times close"></i></a>
@@ -19,8 +19,8 @@ var Form = React.createClass({
           <a href="" className="shareUrl">https://track.shyp.com/qiuehv</a>
         </div>
       )
-  },
+  }
 
-});
+};
 
-module.exports = Form;
+module.exports = ShareTrackingForm;

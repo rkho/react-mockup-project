@@ -1,21 +1,25 @@
 var React = require('react');
 
-var Form = require('./Form');
-var ShareButton = require('./ShareButton');
+var ShareTrackingForm = require('./ShareTrackingForm');
+var ShareTrackingButton = require('./ShareTrackingButton');
 
-var ShareTracking = React.createClass({
+class ShareTracking extends React.Component {
 
-  // In here, we're going to render a specific component based on whether or not the "Share Tracking" button has been clicked or not.
+  // Toggles between the `Share Tracking` button and the actual form to do so based on a `buttonClicked` boolean in state.
 
-  // Set the button's properties based on state (CSS, onclick)
+  constructor(props) {
+    super(props);
 
-  getInitialState: function() {
-    return({
+    this.state = {
       buttonClicked: false
-    })
-  },
+    }
 
-  render: function() {
+    // I'm binding _onButtonClick to this specific component.
+
+    this._onButtonClick = this._onButtonClick.bind(this);
+  }
+
+  render() {
     if (!this.state.buttonClicked) {
       return (
         this._renderButton()
@@ -25,30 +29,31 @@ var ShareTracking = React.createClass({
     return (
       this._renderForm()
       )
-  },
+  }
 
-  _onButtonClick: function() {
+  _onButtonClick() {
     this.setState({
       buttonClicked: !this.state.buttonClicked
     })
-  },
+  }
 
-  _renderButton: function() {
+  _renderButton() {
     return(
       <div id="shareTrackingContainer">
-        <ShareButton onDisabledButtonClick={this._onButtonClick} />
+        <ShareTrackingButton onDisabledButtonClick={this._onButtonClick} />
       </div>
       )
-  },
+  }
 
-  _renderForm: function() {
+  _renderForm() {
     return (
       <div id="shareTrackingContainer">
-        <Form onCloseButtonClick={this._onButtonClick}/>
+        <ShareTrackingForm onCloseButtonClick={this._onButtonClick}/>
       </div>
 
       )
   }
-});
+
+};
 
 module.exports = ShareTracking;

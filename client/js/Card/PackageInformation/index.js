@@ -2,21 +2,17 @@ var React = require('react');
 
 var AddressCell = require('./AddressCell');
 
-var ShippingInfo = React.createClass({
+class PackageInformation extends React.Component {
 
-  // Info should contain three things:
-  // An image of the item
-  // A FROM address
-  // A TO address
-  componentWillMount: function() {
+  componentWillMount() {
     this.setState({
       image: this.props.image,
       sender: this.props.sender,
       recipient: this.props.recipient
     })
-  },
+  }
 
-  render: function() {
+  render() {
     return (
       <div id="shippingInfoContainer">
         <img src={this.state.image} id="itemImage" />
@@ -25,6 +21,7 @@ var ShippingInfo = React.createClass({
       </div>
       )
   }
-});
 
-module.exports = ShippingInfo;
+};
+
+module.exports = PackageInformation;

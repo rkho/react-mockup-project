@@ -1,27 +1,27 @@
 var React = require('react');
 
 var ShareTracking = require('./ShareTracking');
-var ShippingInfo = require('./ShippingInfo');
-var Tracking = require('./Tracking');
+var PackageInformation = require('./PackageInformation');
+var TrackingDetails = require('./TrackingDetails');
 
-var Card = React.createClass({
+class Card extends React.Component {
 
-  // Card encapsulates the center, well, card, containing a package's information
-  componentWillMount: function() {
+  componentWillMount() {
     this.setState({
       data: this.props.data
     })
-  },
+  }
 
-  render: function() {
+  render () {
     return (
         <div id="card">
-          <ShippingInfo image={this.state.data.image} sender={this.state.data.sender} recipient={this.state.data.recipient} />
+          <PackageInformation image={this.state.data.image} sender={this.state.data.sender} recipient={this.state.data.recipient} />
           <ShareTracking />
-          <Tracking delivery={this.state.data.delivery} tracking={this.state.data.tracking} />
+          <TrackingDetails delivery={this.state.data.delivery} tracking={this.state.data.tracking} />
         </div>
       )
   }
-});
+
+};
 
 module.exports = Card;

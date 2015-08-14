@@ -1,43 +1,66 @@
 var React = require('react');
-var $ = require('jQuery');
 
-var Header = require('./header');
+var Header = require('./Header');
 var Card = require('./Card');
 
-var App = React.createClass({
+class App extends React.Component {
 
-  // App renders the Header shown as well as a container that encapsulates our Card component.
-  // We're also going to make an AJAX request here and pass the data down to child components as props.
-    // For the purposes of this challenge, I'm just utilizing Firebase's REST API to make a single request to some stubbed data.
-    // TODO: Center the spinning animation
+  // App renders the components that make up our entire webapp.
 
-  getInitialState: function() {
-    return {
+  constructor(props) {
+    super(props);
+
+    this.state = {
       data: undefined,
-      loaded: false
+      loaded: false,
+      endpoint: 'https://shypcc.firebaseio.com/shipments/1.json'
     }
-  },
+  }
 
-  componentWillMount: function() {
-    $.get('https://shypcc.firebaseio.com/shipments/1.json', function(result) {
-      this.setState({
-        data: result,
-        loaded: true
+  // During its componentWillMount lifecycle, App will make an Ajax request for data.
+
+  // I'm only using Firebase's REST API because I'm only
+  // making one specific GET request to stubbed data, and
+  // the results of that call are being trickled down to the rest of my component as props.
+
+  componentWillMount() {
+    fetch(this.state.endpoint)
+      .then((response) => {
+        return response.json();
       })
-    }.bind(this))
-  },
+      .then((data) => {
+        this.setState({
+          data: data,
+          loaded: true
+        })
+      })
+  }
 
-  render: function() {
+  // If our API call hasn't yet completed, show a spinning animation.
+  // Otherwise, show the page with our content.
+  render() {
     if (!this.state.loaded) {
       return (
-        <div>
-          <Header />
-          <div id="container">
-            <i className="fa fa-spinner fa-spin fa-5x loading" />
-          </div>
-        </div>
+        this._renderLoading()
         )
     }
+    return (
+      this._renderPage()
+      )
+  }
+
+  _renderLoading() {
+    return (
+      <div>
+        <Header />
+        <div id="container">
+          <i className="fa fa-spinner fa-spin fa-5x loading" />
+        </div>
+      </div>
+      )
+  }
+
+  _renderPage() {
     return (
       <div>
         <Header />
@@ -47,7 +70,8 @@ var App = React.createClass({
       </div>
       )
   }
-});
+
+};
 
 React.render(<App />, document.getElementById('app'));
 
