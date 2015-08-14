@@ -2,11 +2,13 @@
 Shyp's Coding Challenge
 
 ##Running code
-This repository utilizes `Gulp` as its task runner.
+First things first, `npm install`.
+
+This repository utilizes `Gulp` as its task runner. If you don't already have it, install it globally: `npm install -g gulp`.
 
 Gulp will build a Browserified, Babel-ified, concatenated file for the index to run.
 
-In order to keep listening for changes, just run `gulp dev` in your terminal, which will run a full build and then listen for future changes.
+In order to keep listening for changes, run `gulp dev` in your terminal, which will run a full build and then listen for future changes.
 
 If you'd like to just build it once, just utilize `gulp build`.
 
