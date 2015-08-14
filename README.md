@@ -11,7 +11,7 @@ In order to keep listening for changes, just run `gulp dev` in your terminal, wh
 If you'd like to just build it once, just utilize `gulp build`.
 
 ##Technologies
-I'm utilizing React, ES6, and Flux for this single-page application.
+I'm utilizing React and ES6 for this single-page application.
 
 For styling, just vanilla CSS.
 
