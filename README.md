@@ -1,3 +1,6 @@
+#React Mockup Project
+This is a client-side script for a React frontend that was initially provided as a Sketch mockup.
+
 ##Running code
 First things first, `npm install`.
 
