@@ -1,8 +1,8 @@
-var React = require('react');
+import React from 'react';
 
-var ShareTracking = require('./ShareTracking');
-var PackageInformation = require('./PackageInformation');
-var TrackingDetails = require('./TrackingDetails');
+import ShareTracking from './ShareTracking';
+import PackageInformation from './PackageInformation';
+import TrackingDetails from './TrackingDetails';
 
 class Card extends React.Component {
 

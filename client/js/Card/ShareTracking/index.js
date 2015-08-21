@@ -1,7 +1,7 @@
-var React = require('react');
+import React from 'react';
 
-var ShareTrackingForm = require('./ShareTrackingForm');
-var ShareTrackingButton = require('./ShareTrackingButton');
+import ShareTrackingForm from './ShareTrackingForm';
+import ShareTrackingButton from './ShareTrackingButton';
 
 class ShareTracking extends React.Component {
 

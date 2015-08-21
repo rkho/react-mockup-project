@@ -1,7 +1,7 @@
-var React = require('react');
+import React from 'react';
 
-var Header = require('./Header');
-var Card = require('./Card');
+import Header from './Header';
+import Card from './Card';
 
 class App extends React.Component {
 

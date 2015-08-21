@@ -1,6 +1,6 @@
-var React = require('react');
+import React from 'react';
 
-var TrackingDetailsRow = require('./TrackingDetailsRow');
+import TrackingDetailsRow from './TrackingDetailsRow';
 
 class TrackingDetails extends React.Component {
 

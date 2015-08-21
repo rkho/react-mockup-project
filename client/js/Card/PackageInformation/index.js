@@ -1,6 +1,6 @@
-var React = require('react');
+import React from 'react';
 
-var AddressCell = require('./AddressCell');
+import AddressCell from './AddressCell';
 
 class PackageInformation extends React.Component {
 
