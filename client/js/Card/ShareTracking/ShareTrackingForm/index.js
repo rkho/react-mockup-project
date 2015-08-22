@@ -16,7 +16,7 @@ class ShareTrackingForm extends React.Component {
           <button className="button enabled" onClick={this.props.onDisabledButtonClick}>
             <p className="shareButtonText enabled">SHARE TRACKING</p>
           </button>
-          <a href="" className="shareUrl">https://track.shyp.com/qiuehv</a>
+          <a href="" className="shareUrl">https://tracking.com/qiuehv</a>
         </div>
       )
   }
