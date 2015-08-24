@@ -13,7 +13,7 @@ class App extends React.Component {
     this.state = {
       data: undefined,
       loaded: false,
-      endpoint: 'https://shypcc.firebaseio.com/shipments/1.json'
+      endpoint: 'https://trackinginfo.firebaseio.com/shipments/1.json'
     }
   }
 
